@@ -10,6 +10,7 @@ function help {
     echo ""
     echo "Example Command"
     echo "  bash run.sh postgres start"
+    echo ""
     echo "Other"
     echo "  help = The help menu"
 }
@@ -35,6 +36,7 @@ function build_or_run {
 
 if [[ $# -ne 2 ]]; then
     echo "Error! Invalid number of arguments. Please see the help menu"
+    exit 1
 fi
 
 case $1 in
