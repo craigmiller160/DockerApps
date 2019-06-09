@@ -34,7 +34,7 @@ function build_or_run {
 	esac
 }
 
-if [[ $# -ne 2 ]]; then
+if [[ $# -ne 2 ]] && [[ $1 != "help" ]]; then
     echo "Error! Invalid number of arguments. Please see the help menu"
     exit 1
 fi
