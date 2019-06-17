@@ -3,10 +3,12 @@
 function help {
     echo "Available Docker Applications"
     echo "  postgres = The Postgresql database and PGAdmin tool"
+    echo "  mongodb = The MongoDB database"
     echo ""
     echo "Options"
     echo "  build = Build the app, don't start it"
-    echo "  start = Start the app. Will build it if it has not already been built."
+    echo "  start = Start the app. Will build it if it has not already been built"
+    echo "  stop = Stop the app"
     echo ""
     echo "Example Command"
     echo "  bash run.sh postgres start"
@@ -24,10 +26,15 @@ function build_app {
 	sudo -E docker-compose build
 }
 
+function stop_app {
+    sudo -E docker-compose stop
+}
+
 function build_or_run {
 	case $1 in
 		"build") build_app ;;
 		"start") run_app ;;
+        "stop") stop_app ;;
 		*)
 			echo "Error! Invalid command: $1. Try using the 'help' option for more details"
 		;;
@@ -42,6 +49,10 @@ fi
 case $1 in
     "postgres")
         cd Postgres
+        build_or_run $2
+    ;;
+    "mongodb")
+        cd MongoDB
         build_or_run $2
     ;;
     "help")

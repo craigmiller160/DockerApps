@@ -1,0 +1,20 @@
+version: '3.5'
+
+services:
+  mongodb:
+    image: mongo:3.4.21
+    container_name: mongodb
+    networks:
+      - mongo_network
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=user
+      - MONGO_INITDB_ROOT_PASSWORD=password
+    ports:
+      - 27017:27017
+    volumes:
+      - ~/.mongodb/data:/data/db
+      - ~/.mongodb/init:/docker-entrypoint-initdb.d
+
+networks:
+  mongo_network:
+    name: mongo_network
