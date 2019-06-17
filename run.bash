@@ -3,7 +3,7 @@
 function help {
     echo "Available Docker Applications"
     echo "  postgres = The Postgresql database and PGAdmin tool"
-    echo "  mongodb = The MongoDB database"
+    echo "  mongodb = The MongoDB database and MongoClient tool"
     echo ""
     echo "Options"
     echo "  build = Build the app, don't start it"

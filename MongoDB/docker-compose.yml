@@ -15,6 +15,16 @@ services:
       - ~/.mongodb/data:/data/db
       - ~/.mongodb/init:/docker-entrypoint-initdb.d
 
+  mongoclient:
+    image: mongoclient/mongoclient:2.2.0
+    container_name: mongoclient
+    networks:
+      - mongo_network
+    ports:
+      - 27018:3000
+    volumes:
+      - ~/.mongodb/client:/data/db
+
 networks:
   mongo_network:
     name: mongo_network
