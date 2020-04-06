@@ -11,7 +11,7 @@ fi
 
 compose_version=$(curl https://api.github.com/repos/docker/compose/releases/latest | jq .name -r)
 echo "Latest Docker-Compose Version: $compose_version"
-output="/usr/local/bin/docker-compose"
+output="/usr/bin/docker-compose"
 echo "Downloading and installing Docker-Compose"
 sudo curl -L https://github.com/docker/compose/releases/download/$compose_version/docker-compose-$(uname -s)-$(uname -m) -o $output
 sudo chmod +x $output
