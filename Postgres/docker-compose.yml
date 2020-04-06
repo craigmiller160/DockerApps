@@ -12,8 +12,8 @@ services:
     ports:
       - 5432:5432
     volumes:
-      - ~/.postgresql/data:/var/lib/postgresql/data
-      - ~/.postgresql/init:/docker-entrypoint-initdb.d
+      - /opt/docker/postgresql/data:/var/lib/postgresql/data
+      - /opt/docker/postgresql/init:/docker-entrypoint-initdb.d
 
   pgadmin:
     image: dpage/pgadmin4
@@ -26,7 +26,7 @@ services:
       - PGADMIN_DEFAULT_EMAIL=user@gmail.com
       - PGADMIN_DEFAULT_PASSWORD=password
     volumes:
-      - ~/.postgresql/pgadmin:/var/lib/pgadmin
+      - /opt/docker/postgresql/pgadmin:/var/lib/pgadmin
 
 networks:
   pg_network:
